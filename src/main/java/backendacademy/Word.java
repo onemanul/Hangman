@@ -11,7 +11,7 @@ public class Word {
     private final Set<Character> letters;
     private int remainingAttempts;
     private final int level;
-    int maxAttempts = 6;
+    private final int maxAttempts = 6;
 
     public Word(String word, String hint, int level) {
         this.word = word;
