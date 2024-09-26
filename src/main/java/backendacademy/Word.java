@@ -9,13 +9,15 @@ public class Word {
     private String hiddenWord;
     private final String hint;
     private final Set<Character> letters;
-    private int remainingAttempts = 6;
+    private int remainingAttempts;
     private final int level;
+    int maxAttempts = 6;
 
     public Word(String word, String hint, int level) {
         this.word = word;
         this.hiddenWord = "_".repeat(word.length());
         this.hint = hint;
+        this.remainingAttempts = maxAttempts;
         this.letters = word.chars().mapToObj(chr -> (char) chr).collect(Collectors.toSet());
         this.level = level;
     }

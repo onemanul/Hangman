@@ -5,13 +5,15 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.logging.Logger;
+import lombok.experimental.UtilityClass;
 
+@UtilityClass
 public class Main {
     private static final Logger LOGGER = Logger.getLogger(Main.class.getName());
     private static final Scanner IN = new Scanner(System.in);
 
     public static void main(String[] args) {
-        LOGGER.info("Добро пожаловать в игру Виселица! \n\nДля старта нажмите 1. Для выхода - 0.");
+        LOGGER.info("Добро пожаловать в игру Виселица! \nДля старта нажмите 1. Для выхода - 0.");
         while (IN.nextLine().equals("1")) {
             Word word = chooseWordByOptions();
             playGame(word);
