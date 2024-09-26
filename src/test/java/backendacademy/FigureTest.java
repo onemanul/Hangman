@@ -7,62 +7,69 @@ public class FigureTest {
     @Test
     public void testShowGallowsValidAttempts() {
         Figure figure = new Figure();
-        assertEquals("\n" +
-                "    +-----+\n" +
-                "    |     |\n" +
-                "          |\n" +
-                "          |\n" +
-                "          |\n" +
-                "          |\n" +
-                "===========", figure.showGallows(6));
-        assertEquals("\n" +
-                "    +-----+\n" +
-                "    |     |\n" +
-                "    0     |\n" +
-                "          |\n" +
-                "          |\n" +
-                "          |\n" +
-                "===========", figure.showGallows(5));
-        assertEquals("\n" +
-                "    +-----+\n" +
-                "    |     |\n" +
-                "    0     |\n" +
-                "    |     |\n" +
-                "          |\n" +
-                "          |\n" +
-                "===========", figure.showGallows(4));
-        assertEquals("\n" +
-                "    +-----+\n" +
-                "    |     |\n" +
-                "    0     |\n" +
-                "   /|     |\n" +
-                "          |\n" +
-                "          |\n" +
-                "===========", figure.showGallows(3));
-        assertEquals("\n" +
-                "    +-----+\n" +
-                "    |     |\n" +
-                "    0     |\n" +
-                "   /|\\    |\n" +
-                "          |\n" +
-                "          |\n" +
-                "===========", figure.showGallows(2));
-        assertEquals("\n" +
-                "    +-----+\n" +
-                "    |     |\n" +
-                "    0     |\n" +
-                "   /|\\    |\n" +
-                "   /      |\n" +
-                "          |\n" +
-                "===========", figure.showGallows(1));
-        assertEquals("\n" +
-                "    +-----+\n" +
-                "    |     |\n" +
-                "    0     |\n" +
-                "   /|\\    |\n" +
-                "   / \\    |\n" +
-                "          |\n" +
-                "===========", figure.showGallows(0));
+        assertEquals("""
+
+    +-----+
+    |     |
+          |
+          |
+          |
+          |
+===========""", figure.showGallows(6));
+        assertEquals("""
+
+    +-----+
+    |     |
+    0     |
+          |
+          |
+          |
+===========""", figure.showGallows(5));
+        assertEquals("""
+
+    +-----+
+    |     |
+    0     |
+    |     |
+          |
+          |
+===========""", figure.showGallows(4));
+        assertEquals("""
+
+    +-----+
+    |     |
+    0     |
+   /|     |
+          |
+          |
+===========""", figure.showGallows(3));
+        assertEquals("""
+
+    +-----+
+    |     |
+    0     |
+   /|\\    |
+          |
+          |
+===========""", figure.showGallows(2));
+        assertEquals("""
+
+    +-----+
+    |     |
+    0     |
+   /|\\    |
+   /      |
+          |
+===========""", figure.showGallows(1));
+        assertEquals("""
+
+    +-----+
+    |     |
+    0     |
+   /|\\    |
+   / \\    |
+          |
+===========""", figure.showGallows(0));
     }
 
     @Test

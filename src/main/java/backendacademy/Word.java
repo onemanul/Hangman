@@ -5,12 +5,12 @@ import java.util.stream.Collectors;
 
 public class Word {
 
-    private String word;
+    private final String word;
     private String hiddenWord;
-    private String hint;
-    private Set<Character> letters;
+    private final String hint;
+    private final Set<Character> letters;
     private int remainingAttempts = 6;
-    private int level;
+    private final int level;
 
     public Word(String word, String hint, int level) {
         this.word = word;

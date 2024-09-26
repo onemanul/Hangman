@@ -4,12 +4,11 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Random;
-import java.util.logging.Logger;
 
 public class Dictionary {
-    private static final Logger LOGGER = Logger.getLogger(Main.class.getName());
-    private LinkedHashMap<String, List<Word>> categories = new LinkedHashMap<>();
-    private String[] keys;
+
+    private final LinkedHashMap<String, List<Word>> categories = new LinkedHashMap<>();
+    private final String[] keys;
 
     public Dictionary() {
         this.categories.put("чувства", List.of(
