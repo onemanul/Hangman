@@ -10,66 +10,66 @@ public class FigureTest {
         assertEquals("""
 
     +-----+
-    |     |
-          |
-          |
-          |
-          |
-===========""", figure.showGallows(6));
+    |     |\\
+          | \\
+          |  \\
+          |   \\
+          |    \\
+==================""", figure.showGallows(6));
         assertEquals("""
 
     +-----+
-    |     |
-    0     |
-          |
-          |
-          |
-===========""", figure.showGallows(5));
+    |     |\\
+    0     | \\
+          |  \\
+          |   \\
+          |    \\
+==================""", figure.showGallows(5));
         assertEquals("""
 
     +-----+
-    |     |
-    0     |
-    |     |
-          |
-          |
-===========""", figure.showGallows(4));
+    |     |\\
+    0     | \\
+    |     |  \\
+          |   \\
+          |    \\
+==================""", figure.showGallows(4));
         assertEquals("""
 
     +-----+
-    |     |
-    0     |
-   /|     |
-          |
-          |
-===========""", figure.showGallows(3));
+    |     |\\
+    0     | \\
+   /|     |  \\
+          |   \\
+          |    \\
+==================""", figure.showGallows(3));
         assertEquals("""
 
     +-----+
-    |     |
-    0     |
-   /|\\    |
-          |
-          |
-===========""", figure.showGallows(2));
+    |     |\\
+    0     | \\
+   /|\\    |  \\
+          |   \\
+          |    \\
+==================""", figure.showGallows(2));
         assertEquals("""
 
     +-----+
-    |     |
-    0     |
-   /|\\    |
-   /      |
-          |
-===========""", figure.showGallows(1));
+    |     |\\
+    0     | \\
+   /|\\    |  \\
+   /      |   \\
+          |    \\
+==================""", figure.showGallows(1));
         assertEquals("""
 
     +-----+
-    |     |
-    0     |
-   /|\\    |
-   / \\    |
-          |
-===========""", figure.showGallows(0));
+    |     |\\
+    0     | \\
+   /|\\    |  \\
+   / \\    |   \\
+          |    \\
+==================""", figure.showGallows(0));
     }
 
     @Test

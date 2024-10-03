@@ -4,6 +4,7 @@ import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Optional;
 
 public class Dictionary {
 
@@ -66,21 +67,23 @@ public class Dictionary {
         this.keys = categories.keySet().toArray(String[]::new);
     }
 
-    public Word getWord(int numberOfCategory, int level) {
+    public Optional<Word> getWord(int numberOfCategory, int level) {      // optional
         if (numberOfCategoryNotExists(numberOfCategory) || levelNotExists(level)) {
-            return null;
-        }
-        List<Word> words = new ArrayList<>();
-        for (Word w : categories.get(keys[numberOfCategory - 1])) {   // изменяем порядковый номер на индекс в массиве
-            if (w.getLevel() == level) {
-                words.add(w);
-            }
-        }
-        if (!words.isEmpty()) {
-            int randIndex = new SecureRandom().nextInt(words.size());
-            return words.get(randIndex);
+            return Optional.empty();
         } else {
-            return null;
+            List<Word> words = new ArrayList<>();
+            for (Word w : categories.get(
+                keys[numberOfCategory - 1])) {   // изменяем порядковый номер на индекс в массиве
+                if (w.getLevel() == level) {
+                    words.add(w);
+                }
+            }
+            if (!words.isEmpty()) {
+                int randIndex = new SecureRandom().nextInt(words.size());
+                return Optional.of(words.get(randIndex));
+            } else {
+                return Optional.empty();
+            }
         }
     }
 

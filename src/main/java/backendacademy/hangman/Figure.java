@@ -15,7 +15,7 @@ public class Figure {
           |  \\
           |   \\
           |    \\
-===========""";
+==================""";
         gallowsPictures[++i] = gallowsPictures[i - 1].replace("          | \\", "    0     | \\");
         gallowsPictures[++i] = gallowsPictures[i - 1].replace("          |  \\", "    |     |  \\");
         gallowsPictures[++i] = gallowsPictures[i - 1].replace(" |     | ", "/|     | ");

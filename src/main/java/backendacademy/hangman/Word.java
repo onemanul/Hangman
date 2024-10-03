@@ -11,7 +11,7 @@ public class Word {
     private final Set<Character> letters;
     private int remainingAttempts;
     private final int level;
-    private int maxAttempts;
+    private final int maxAttempts;
 
     public Word(String word, String hint, int level, int maxAttempts) {
         this.word = word;
@@ -23,7 +23,8 @@ public class Word {
         this.maxAttempts = maxAttempts;
     }
 
-    public void checkGuess(char ch) {
+    public void checkGuess(char c) {
+        char ch = Character.toLowerCase(c);
         if (letters.contains(ch)) {
             for (int i = 0; i < word.length(); ++i) {
                 if (word.charAt(i) == ch) {
