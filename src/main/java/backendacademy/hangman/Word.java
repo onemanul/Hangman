@@ -23,19 +23,6 @@ public class Word {
         this.maxAttempts = maxAttempts;
     }
 
-    public void checkGuess(char c) {
-        char ch = Character.toLowerCase(c);
-        if (letters.contains(ch)) {
-            for (int i = 0; i < word.length(); ++i) {
-                if (word.charAt(i) == ch) {
-                    hiddenWord = hiddenWord.substring(0, i) + ch + hiddenWord.substring(i + 1);
-                }
-            }
-        } else {
-            remainingAttempts--;
-        }
-    }
-
     public boolean wordIsNotShown() {
         return !hiddenWord.equals(word);
     }
@@ -48,12 +35,24 @@ public class Word {
         return hiddenWord;
     }
 
+    public void setHiddenWord(String hiddenWord) {
+        this.hiddenWord = hiddenWord;
+    }
+
     public String getHint() {
         return hint;
     }
 
+    public Set<Character> getLetters() {
+        return letters;
+    }
+
     public int getRemainingAttempts() {
         return remainingAttempts;
+    }
+
+    public void setRemainingAttempts(int remainingAttempts) {
+        this.remainingAttempts = remainingAttempts;
     }
 
     public int getLevel() {

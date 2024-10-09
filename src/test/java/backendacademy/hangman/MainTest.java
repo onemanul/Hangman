@@ -10,10 +10,10 @@ import java.util.Set;
 public class MainTest {
     @Test
     public void testCheckForInt() {
-        assertEquals(1, Main.checkForInt("1"));
-        assertEquals(12, Main.checkForInt("12"));
-        assertEquals(-1, Main.checkForInt("abc"));
-        assertEquals(-1, Main.checkForInt("123abc"));
+        assertEquals(1, Main.checkForInt("1").get());
+        assertEquals(12, Main.checkForInt("12").get());
+        assertTrue(Main.checkForInt("abc").isEmpty());
+        assertTrue(Main.checkForInt("123abc").isEmpty());
     }
 
     @Test
@@ -23,6 +23,15 @@ public class MainTest {
         assertFalse(Main.checkForChar("1"));
         assertFalse(Main.checkForChar("аа"));
         assertFalse(Main.checkForChar("!"));
+    }
+
+    @Test
+    public void testChooseRandomInt() {
+        assertTrue(Main.chooseRandomInt(1,3) > 0);
+        assertTrue(Main.chooseRandomInt(1,3) < 4);
+        assertEquals(1, Main.chooseRandomInt(1, 1));
+        assertFalse(Main.chooseRandomInt(1,5) < 1);
+        assertFalse(Main.chooseRandomInt(1,5) > 5);
     }
 
     @Test
@@ -131,5 +140,35 @@ public class MainTest {
         assertTrue(Main.nextGuess("з", word, usedLetters));
         assertEquals(0, word.getRemainingAttempts());
         assertEquals("_____", word.getHiddenWord());
+    }
+
+    @Test
+    public void testCheckGuessCorrectLetter() {
+        Word word = new Word("test", "hint", 1, 6);
+        Main.checkGuess(word, 't');
+        assertEquals("t__t", word.getHiddenWord());
+    }
+
+    @Test
+    public void testCheckGuessCorrectLetterUpperCase() {
+        Word word = new Word("test", "hint", 1, 6);
+        Main.checkGuess(word, 'T');
+        assertEquals("t__t", word.getHiddenWord());
+    }
+
+    @Test
+    public void testCheckGuessIncorrectLetter() {
+        Word word = new Word("test", "hint", 1, 6);
+        Main.checkGuess(word, 'a');
+        assertEquals("_".repeat(4), word.getHiddenWord());
+        assertEquals(5, word.getRemainingAttempts());
+    }
+
+    @Test
+    public void testCheckGuessIncorrectLetterUpperCase() {
+        Word word = new Word("test", "hint", 1, 6);
+        Main.checkGuess(word, 'A');
+        assertEquals("_".repeat(4), word.getHiddenWord());
+        assertEquals(5, word.getRemainingAttempts());
     }
 }

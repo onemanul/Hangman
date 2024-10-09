@@ -1,7 +1,6 @@
 package backendacademy.hangman;
 
 import java.security.SecureRandom;
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Optional;
@@ -71,19 +70,13 @@ public class Dictionary {
         if (numberOfCategoryNotExists(numberOfCategory) || levelNotExists(level)) {
             return Optional.empty();
         } else {
-            List<Word> words = new ArrayList<>();
-            for (Word w : categories.get(
-                keys[numberOfCategory - 1])) {   // изменяем порядковый номер на индекс в массиве
-                if (w.getLevel() == level) {
-                    words.add(w);
-                }
-            }
-            if (!words.isEmpty()) {
-                int randIndex = new SecureRandom().nextInt(words.size());
-                return Optional.of(words.get(randIndex));
-            } else {
-                return Optional.empty();
-            }
+            // изменяем порядковый номер на индекс в массиве
+            List<Word> words = categories.get(keys[numberOfCategory - 1])
+                .stream()
+                .filter(w -> w.getLevel() == level)
+                .toList();
+            return words.isEmpty() ? Optional.empty()
+                : Optional.of(words.get(new SecureRandom().nextInt(words.size())));
         }
     }
 
